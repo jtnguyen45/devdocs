@@ -28,18 +28,15 @@ app.templates.settingsPage = (settings) -> """
     </div>
   </div>
 
-
-
-
   <div class="_settings-fieldset">
       <h2 class="_settings-legend">Font:</h2>
       <div class="_settings-inputs">
         #{if settings.autoSupported
-            fontOption label: "0", value: "Font0", settings
+            fontOption label: "Font0", value: "0", settings
           else
             ""}
-        #{fontOption label: "1", value: "Font1", settings}
-        #{fontOption label: "2", value: "Font2", settings}
+        #{fontOption label: "Font1", value: "1", settings}
+        #{fontOption label: "Font2", value: "2", settings}
       </div>
     </div>
 

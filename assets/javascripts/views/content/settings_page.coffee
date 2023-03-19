@@ -11,6 +11,7 @@ class app.views.SettingsPage extends app.View
 
   currentSettings: ->
     settings = {}
+    settings.font = app.settings.get('font')
     settings.theme = app.settings.get('theme')
     settings.smoothScroll = !app.settings.get('fastScroll')
     settings.arrowScroll = app.settings.get('arrowScroll')
@@ -25,6 +26,10 @@ class app.views.SettingsPage extends app.View
 
   getTitle: ->
     'Preferences'
+
+  setFont: (value) ->
+    app.settings.set('font', value)
+    return
 
   setTheme: (value) ->
     app.settings.set('theme', value)
