@@ -5,9 +5,17 @@ themeOption = ({ label, value }, settings) -> """
   </label>
 """
 
+fontOption = ({ label, value }, settings) -> """
+  <label class="_settings-label _font-label">
+    <input type="radio" name="font" value="#{value}"#{if settings.font == value then ' checked' else ''}>
+    #{label}
+  </label>
+"""
+
+
 app.templates.settingsPage = (settings) -> """
   <h1 class="_lined-heading">Preferences</h1>
-
+  <p>#{JSON.stringify(settings)}</p>
   <div class="_settings-fieldset">
     <h2 class="_settings-legend">Theme:</h2>
     <div class="_settings-inputs">
@@ -19,6 +27,25 @@ app.templates.settingsPage = (settings) -> """
       #{themeOption label: "Dark", value: "dark", settings}
     </div>
   </div>
+
+
+
+
+  <div class="_settings-fieldset">
+      <h2 class="_settings-legend">Font:</h2>
+      <div class="_settings-inputs">
+        #{if settings.autoSupported
+            fontOption label: "0", value: "Font0", settings
+          else
+            ""}
+        #{fontOption label: "1", value: "Font1", settings}
+        #{fontOption label: "2", value: "Font2", settings}
+      </div>
+    </div>
+
+
+
+
 
   <div class="_settings-fieldset">
     <h2 class="_settings-legend">General:</h2>
